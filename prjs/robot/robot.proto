@@ -1,0 +1,22 @@
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package andy;
+
+message Position {
+  int32 x = 1;
+  int32 y = 2;
+  int32 z = 3;
+}
+
+message BoolMsg {
+  bool success = 1;
+}
+
+service Robot {
+  // Sends a greeting
+  rpc MoveTo (Position) returns (BoolMsg) {}
+  rpc getPostion(google.protobuf.Empty) returns (Position) {}
+}
